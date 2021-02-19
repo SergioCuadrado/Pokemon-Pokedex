@@ -1,0 +1,27 @@
+<h1 class="animated fadeIn">{{ pokemon.name | uppercase }} <small>({{ pokemon.id | number:'3.0-0'}})</small></h1>
+<hr>
+
+<div class="row animated fadeIn fast">
+    <div class="col-md-4">
+        <img [src]="pokemon.img" class="img-fluid" alt="">
+        <br><br>
+        <div class="d-grid gap-2">
+            <a [routerLink]="['/pokemons']" class="btn btn-outline-danger">Return</a>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <h3>{{ pokemon.name }}</h3>
+        <hr>
+        <h4>Type</h4>
+        <hr>
+        <p> {{ pokemon.type }} </p>
+
+        <h4>Weaknesses:</h4>
+        <hr>
+        <div *ngFor="let weak of pokemon.weaknesses">
+            <p class="debilidades-estilo" >{{ weak }}</p>
+        </div>
+    </div>
+
+</div>

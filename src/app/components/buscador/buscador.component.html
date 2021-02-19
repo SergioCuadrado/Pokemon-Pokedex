@@ -1,0 +1,31 @@
+<h1> Seeker: <small>{{ termino }}</small></h1>
+<hr>
+
+  <div class="row animated fadeIn fast " *ngIf="pokemons.length == 0">
+    <div class="col-md-12">
+      <div class="alert alert-info" role="alert">
+        There are no results with the term: {{ termino }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row card-deck">
+    <div class="col-md-4" *ngFor="let pokemon of pokemons; let i = index">
+      <div class="card animated fadeIn fast">
+        <img [src]="pokemon.img" class="card-img-top" [alt]="pokemon.nombre">
+        <div class="card-body">
+          <h5 class="card-title">{{ pokemon.name }}</h5>
+          <p class="card-text">{{ pokemon.type }}</p>
+          <p class="card-text">
+            <small class="text-muted">{{ pokemon.aparicion }}</small>
+          </p>
+          <div class="d-grid gap-2">
+              <button (click)="verPokemon(pokemon.id)" class="btn btn-outline-primary">
+                  See more...
+              </button>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
